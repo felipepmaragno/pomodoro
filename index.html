@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pomodoro Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>Pomodoro</h1>
+        </header>
+        <ul class="settings">
+            <li class="descanso-display">
+                <div>
+                    <button type="button" class="menos ctrlVal tempo-descanso">-</button><span class="descanso"></span>
+                    <button type="button" class="mais ctrlVal tempo-descanso">+</button>
+                </div>Tempo do descanso (min.)</li>
+                <br>
+            <li class="pom-display">
+                <div>
+                    <button type="button" class="menos ctrlVal tempo_pomo">-</button><span class="pomodoro"></span>
+                    <button type="button" class="mais ctrlVal tempo_pomo">+</button>
+                </div>Tempo da sessão (min.)</li>
+        </ul>       
+        <div class="timer">
+            <p class="tempo-display"></p>
+        </div>
+        <div class="botoes">
+            <button type="button" class="start">Pomodoro</button>
+            <button type="button" class="startDescanso">Descanso</button>
+        </div>                       
+    </div>
+</body>
+
+</html>

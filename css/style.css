@@ -1,0 +1,94 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+}
+
+body {
+	background: #FF7D58;
+	font-size: 16px;
+	color: #fff;
+}
+
+#container {
+	width: 70%;
+	margin: 20px auto;
+	overflow: hidden;
+}
+header {
+	margin: 15px auto;
+}
+
+h1 {
+	font-size: 2.1em;
+	text-align: center;
+}
+
+.settings {
+	width: 65%;
+	margin: 3em auto;
+	height: 150px;
+	text-align: center;
+}
+
+.settings li {
+	font-size: 1.25em;
+	padding: 20px;
+}
+
+
+.ctrlVal {
+	width: 40px;
+	height: 40px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	color: #FF7D58;
+	background: #fff;
+	font-size: 1.5em;
+}
+
+.descanso, .pomodoro {
+	padding: 0 15px;
+	font-size: 1.75em;
+}
+
+.timer {
+	text-align: center;
+	clear: both;
+}
+
+.tempo-display {
+	font-size: 2em;
+	color: #fff;
+	font-style: bold;
+	padding: 30px;
+}
+
+.botoes {
+	text-align: center;
+	margin-top: 2em;
+}
+
+.start {
+	background: #FF7D58;
+	padding: 10px;
+	width: 125px;
+	height: 45px;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 1.25em
+}
+
+.startDescanso {
+	background: #FF7D58;
+	padding: 10px;
+	width: 125px;
+	height: 45px;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 1.25em
+}
+
