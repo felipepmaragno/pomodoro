@@ -7,12 +7,53 @@ window.onload = function() {
     var start = document.querySelector('.start');
     var startDescanso = document.querySelector('.startDescanso');
 
+    var mais = document.querySelectorAll('.mais');
+    var menos = document.querySelectorAll('.menos');
+
     var pomodoro = document.querySelector('.pomodoro');
     var tempoLivre = document.querySelector('.descanso');
     pomodoro.innerHTML = 25;
     tempoLivre.innerHTML = 5
     var pomodoroMinutos = pomodoro.textContent;
     var descansoMinutos = tempoLivre.textContent;
+
+    mais.forEach(function(elem) {
+        //adiciona listener para cada um, e faz a ação
+        elem.addEventListener('click', function() {
+            if (elem.classList.contains("tempo-descanso")) {
+                //Atualiza descansoMinutos conforme valor
+                var descNum = Number(tempoLivre.innerText);
+                tempoLivre.textContent = descNum + 1;                
+                descansoMinutos = tempoLivre.textContent;
+            } else if (elem.classList.contains("tempo_pomo")) {
+                //Atualiza pomodoroMinutos conforme valor
+                var pomNum = Number(pomodoro.innerText);
+                pomodoro.textContent = pomNum + 1;                
+                pomodoroMinutos = pomodoro.textContent;
+            }
+        });
+    });
+
+    menos.forEach(function(elem) {        
+        //adiciona listener para cada um, e faz a ação
+        elem.addEventListener('click', function() {
+            if (elem.classList.contains("tempo-descanso")) {
+                //Atualiza descansoMinutos conforme valor
+                var descNum = Number(tempoLivre.innerText);
+                if (descNum > 1) {
+                    tempoLivre.textContent = descNum - 1;
+                }
+                descansoMinutos = tempoLivre.textContent;
+            } else if (elem.classList.contains("tempo_pomo")) {
+                //Atualiza pomodoroMinutos conforme valor
+                var pomNum = Number(pomodoro.innerText);
+                if (pomNum > 1) {
+                    pomodoro.textContent = pomNum - 1;
+                }
+                pomodoroMinutos = pomodoro.textContent;
+            }
+        });
+    });
 
     function pomodoroCountDown() {
         var minutes = pomodoroMinutos - 1;
@@ -63,7 +104,14 @@ window.onload = function() {
     }
 
     start.addEventListener('click', function() {
-        
+        //esconde botões + e - quando inicia
+        menos.forEach(function(elem) {
+            elem.style.display = 'none';
+        });
+        mais.forEach(function(elem) {
+            elem.style.display = 'none';
+        });
+        //só mostra tempo e reiniciar
         descansoDisplay.style.display = 'none';
         start.style.display = 'none';
         startDescanso.style.display = 'none';    
@@ -71,12 +119,20 @@ window.onload = function() {
     });
 
     startDescanso.addEventListener('click', function() {
-        
+        //esconde botões + e - quando inicia
+        menos.forEach(function(elem) {
+            elem.style.display = 'none';
+        });
+        mais.forEach(function(elem) {
+            elem.style.display = 'none';
+        });
+        //só mostra tempo e reiniciar
         descansoDisplay.style.display = 'none';
         start.style.display = 'none';
-        startDescanso.style.display = 'none';    
+        startDescanso.style.display = 'none';        
         descansoCountDown();
     });
+
 
 }
 
