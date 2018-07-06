@@ -2,6 +2,7 @@
 var timeOut;
 
 window.onload = function() {
+    //inicializa variaveis display, inicio contadores, botões mais e menos, minutos, segundos
     var descansoDisplay = document.querySelector('.descanso-display');
     var pomDisplay = document.querySelector('.pom-display');
     var start = document.querySelector('.start');
@@ -15,6 +16,11 @@ window.onload = function() {
     tempoLivre.innerHTML = 5
     var pomodoroMinutos = pomodoro.textContent;
     var descansoMinutos = tempoLivre.textContent;
+    var pomodoroCount = 0;
+    var pomodoroTotal = 0;
+    var d = new Date().getDate();    
+
+    //botões menos e mais
 
     mais.forEach(function(elem) {
         //adiciona listener para cada um, e faz a ação
@@ -54,6 +60,8 @@ window.onload = function() {
         });
     });
 
+     //contadores, timer, alarme
+
     function pomodoroCountDown() {
         var minutes = pomodoroMinutos - 1;
         var seconds = 60;
@@ -71,9 +79,33 @@ window.onload = function() {
             var display = document.querySelector('.tempo-display');
             display.innerHTML = (minutes < 10 ? "0" + minutes.toString() : minutes) + ':' + (seconds < 10 ? "0" + seconds.toString() : seconds);
             if (total === 0) {   
+                //limpa tempo do pomodoro e limpa display da sessão
                 tocarAlarme();                               
                 clearInterval(timeOut);
-                pomDisplay.style.display = 'none';                 
+                pomDisplay.style.display = 'none'; 
+                //conta apenas pomodoro padrão de 25 min
+                if (pomodoroMinutos == 25) {          
+                pomodoroCount += 1;
+                }
+                //considerando qualquer tamanho de sessão para a contagem total
+                pomodoroTotal += 1;                
+                if (pomodoroCount == 4) {
+                    popomodoroCount = 0;
+                    var res = window.confirm("Realizar um descanso de 10 minutos?");
+                    if (res != false) {
+                        descansoMinutos = 10;
+                        tempoLivre.innerHTML = 10
+                        descansoCountDown();
+                    }  else {
+                        window.location.reload(true);
+                    }
+                }                
+                dAgr = new Date().getDate();  
+                //se o dia mudar, mostra total do ultimo dia e reseta o contador 
+                if (d != dAgr) {
+                    alert("O total de pomodoros de qualquer duração realizados no último dia foi: " + pomodoroTotal);
+                    pomodoroTotal = 0;                    
+                }                
             }
         }
     }
@@ -103,6 +135,8 @@ window.onload = function() {
             }
         }
     }
+
+    //botões start, descanso e reset
 
     start.addEventListener('click', function() {
         //esconde botões + e - quando inicia
