@@ -16,6 +16,24 @@ body {
 	margin: 20px auto;
 	overflow: hidden;
 }
+
+#alarme {
+	text-align: center;
+	margin: 15px auto;
+	font-size: 1.2em;
+}
+
+#alarm_select {
+	width: 25px;
+	height: 25px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	color: #FF7D58;
+	background: #fff;
+	font-size: 0.8em;
+	width: 15%;
+}
+
 header {
 	margin: 15px auto;
 }
@@ -89,6 +107,18 @@ h1 {
 	border: 2px solid #fff;
 	border-radius: 3px;
 	color: #fff;
+	font-size: 1.25em
+}
+
+.reset {
+	background: #FF7D58;
+	padding: 10px;
+	width: 125px;
+	height: 45px;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	color: #fff;
+	display: none;
 	font-size: 1.25em
 }
 

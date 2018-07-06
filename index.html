@@ -32,7 +32,21 @@
         <div class="botoes">
             <button type="button" class="start">Pomodoro</button>
             <button type="button" class="startDescanso">Descanso</button>
-        </div>                       
+            <button type="button" class="reset">Reiniciar</button>
+        </div>
+        <div id="alarme">
+        <label for="alarm_select" id="lbl_alarm">alarme:</label>
+        <select id="alarm_select">                  
+           <option value="alarm_bell" selected>Bell</option>            
+           <option value="alarm_boops">Boops</option>
+        </select>
+        </div>
+        <br>                
+        <audio id="alarm_bell">
+            <source src="audio/one_bell.mp3" type="audio/mpeg"></audio>
+        <audio id="alarm_boops">
+            <source src="audio/three_boops.mp3" type="audio/mpeg"></audio>  
+        <script type="text/javascript" src="js/script.js"></script>                       
     </div>
 </body>
 

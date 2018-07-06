@@ -6,10 +6,9 @@ window.onload = function() {
     var pomDisplay = document.querySelector('.pom-display');
     var start = document.querySelector('.start');
     var startDescanso = document.querySelector('.startDescanso');
-
+    var reset = document.querySelector('.reset');
     var mais = document.querySelectorAll('.mais');
     var menos = document.querySelectorAll('.menos');
-
     var pomodoro = document.querySelector('.pomodoro');
     var tempoLivre = document.querySelector('.descanso');
     pomodoro.innerHTML = 25;
@@ -71,7 +70,8 @@ window.onload = function() {
             }
             var display = document.querySelector('.tempo-display');
             display.innerHTML = (minutes < 10 ? "0" + minutes.toString() : minutes) + ':' + (seconds < 10 ? "0" + seconds.toString() : seconds);
-            if (total === 0) {                                
+            if (total === 0) {   
+                tocarAlarme();                               
                 clearInterval(timeOut);
                 pomDisplay.style.display = 'none';                 
             }
@@ -98,6 +98,7 @@ window.onload = function() {
             display.innerHTML = (minutes < 10 ? "0" + minutes.toString() : minutes) + ':' + (seconds < 10 ? "0" + seconds.toString() : seconds);
             if (total === 0) {
                 //limpa tempo descanso 
+                tocarAlarme();   
                 clearInterval(timeOut);
             }
         }
@@ -115,6 +116,7 @@ window.onload = function() {
         descansoDisplay.style.display = 'none';
         start.style.display = 'none';
         startDescanso.style.display = 'none';    
+        reset.style.display = 'inline-block';        
         pomodoroCountDown();
     });
 
@@ -129,10 +131,20 @@ window.onload = function() {
         //só mostra tempo e reiniciar
         descansoDisplay.style.display = 'none';
         start.style.display = 'none';
-        startDescanso.style.display = 'none';        
+        startDescanso.style.display = 'none';    
+        reset.style.display = 'inline-block';            
         descansoCountDown();
     });
 
+    reset.addEventListener('click', function() {
+        //recarrega pagina
+        window.location.reload(true);
+    });
 
+    function tocarAlarme() {
+        var alarmValue = document.getElementById('alarm_select').value;    
+        var alarmAudio = document.getElementById(alarmValue);
+        alarmAudio.play();
+    }
 }
 
